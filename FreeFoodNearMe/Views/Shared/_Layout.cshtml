@@ -3,37 +3,111 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - FreeFoodNearMe</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+    <header>       
+        <nav class="navbar navbar-expand navbar-light" id="navbarTop">
+                <a class="navbar-brand" href="~/">
+                    <img src="~/Images/FreeFoodNearMeLogo.png" width="300" />
+                </a>
+                <div class="navbar-expand navbar navbar-container">
+                    <ul class="navbar-nav nav">
+                        <li class="nav-item" id="headerItem">
+                            <a class="nav-link" href="#">Home</a>
+                            <div class="underline"></div>
+                        </li>
+                        <li class="nav-item" id="headerItem">
+                            <a class="nav-link" href="#">Request Your Service</a>       
+                            <div class="underline"></div>
+                    </ul>
+                </div>
+
+                <div class="navbar navbar-expand logInArea">
+                    <div class="navbar navbar-expand navbar-container">
+                        <ul class="navbar-nav nav">
+                            <li class="nav-item">
+                                <a class="nav-link" id="logIn" href="#" data-balloon="This functionality is currently only for administrators" data-balloon-pos="down">Log In</a>
+                                <div class="underline"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="float-right" id="QUTLogoHeader">
+                        <a href="https://www.qut.edu.au/">
+                            <img src="~/Images/QUTLogo.png" width="80" />
+                        </a>
+                    </div>
+                </div>
+        </nav>         
+    </header>
+
+    <div>
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+
+
+    <footer class="footerArea">
+        <div class="row footerContent">
+            <div class="col-6 footerLeft">
+                <div class="navbar-expand navbar-container">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="~/">Home</a>
+                            <div class="underline"></div>
+                        </li>
+                        <li><a>|</a></li>
+                        <li class="nav-item">
+                            <a href="#">Request Your Service</a>
+                            <div class="underline"></div>
+                        </li>
+                        <li><a>|</a></li>
+                        <li class="nav-item">
+                            <a href="#">Terms of Service</a>
+                            <div class="underline"></div>
+                        </li>
+                        <li><a>|</a></li>
+                        <li class="nav-item">
+                            <a href="#">Privacy Policy</a>
+                            <div class="underline"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-4 footerRight">
+                <div class="navbar-expand navbar-container float-right">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="https://www.facebook.com/QUTBrisbane/"><i class="fa fa-facebook-f" style="font-size:30px"></i></a>
+                            <div class="underline"></div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://twitter.com/QUT"><i class="fa fa-twitter" style="font-size:30px"></i></a>
+                            <div class="underline"></div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.youtube.com/user/TheQUTube"><i class="fa fa-youtube" style="font-size:30px"></i></a>
+                            <div class="underline"></div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.instagram.com/qutrealworld/?hl=en"><i class="fa fa-instagram" style="font-size:30px"></i></a>
+                            <div class="underline"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-2 footerRight">
+                <img src="~/Images/QUTLogo2.png" width="250" style="margin-top:-5px"/>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; @DateTime.Now.Year - Jason Chang n9182004 FreeFoodNearMe (This is a site for BEB801 project)
+        </div>
+    </footer>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

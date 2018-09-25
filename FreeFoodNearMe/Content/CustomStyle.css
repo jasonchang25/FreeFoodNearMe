@@ -1,0 +1,178 @@
+﻿/*---------------------------- Header ---------------------------*/
+#navbarTop{
+    height: 80px;
+    padding-left: 75px;
+    background-color: #98d146;
+    font-size: 20px;
+}
+
+.headerContent{
+    width: calc(100vw - 150px);
+    margin: auto;
+}
+
+#QUTLogoHeader {
+    padding-left: 20px;
+}
+
+.logInArea {
+    position: absolute;
+    height: 100%;
+    right: 65px;
+    margin: auto;
+    vertical-align: middle;
+}
+
+#headerItem{
+    padding: 0 10px 0 10px;
+}
+
+/*---------------------------- Footer ---------------------------*/
+.footerArea{
+    height: 120px;
+    background-color: #98d146;
+}
+
+.footerContent {
+    display: table;
+    height: 60px;
+    width: calc(100vw - 150px);
+    margin: auto;
+    padding-top: 10px;
+    vertical-align: middle;
+}
+
+.footerRight{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.footerLeft {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.footerLeft a {
+    color: rgba(0, 0, 0, 0.7) 
+}
+
+.copyright{
+    text-align: center;
+}
+
+/*---------------------------- Homepage ---------------------------*/
+
+
+.MainBanner {
+    height: 400px;
+    width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Images/FreshProduce.png');
+    /*background-image: url("../Images/FreshProduce.png");*/
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    display: table;
+}
+
+.MainBannerMessageArea {
+    display: table-cell;
+    width: 900px;
+    height: 300px;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto auto;
+    position: relative;
+    font-size: 36px;
+    color: white;
+}
+/*---------------------------- Custom Underline ---------------------------*/
+.navbar-container ul li a {
+    text-decoration: none;
+    transition: color 0.5s;
+    padding: 0 10px 0 10px;
+}
+
+.navbar-container ul li .underline {
+    height: 3px;
+    background-color: transparent;
+    width: 0%;
+    transition: width 0.2s, background-color 0.5s;
+    margin: 0 auto;
+}
+
+.navbar-container ul li.active-link .underline {
+    width: 100%;
+    background-color: white;
+}
+
+.navbar-container ul li:hover .underline {
+    background-color: white;
+    width: 100%;
+}
+
+.navbar-container ul li:active a {
+    transition: none;
+    color: rgba(255,255,255,0.76);
+}
+
+.navbar-container ul li:active .underline {
+    transition: none;
+    background-color: rgba(255,255,255,0.76);
+}
+
+/*---------------------------- Tool Tip Style ---------------------------*/
+.tooltip {
+    display: inline-block;
+    position: relative;
+    border-bottom: 1px dotted #666;
+    text-align: left;
+    color: white;
+}
+
+    .tooltip .bottom {
+        min-width: 100px;
+        top: 40px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 10px 20px;
+        color: #FFFFFF;
+        background-color: #333333;
+        font-weight: normal;
+        font-size: 13px;
+        border-radius: 8px;
+        position: absolute;
+        z-index: 99999999;
+        box-sizing: border-box;
+        border: 1px solid #444444;
+        box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.8s;
+    }
+
+    .tooltip:hover .bottom {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .tooltip .bottom i {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -12px;
+        width: 24px;
+        height: 12px;
+        overflow: hidden;
+    }
+
+        .tooltip .bottom i::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            left: 50%;
+            transform: translate(-50%,50%) rotate(45deg);
+            background-color: #333333;
+            border: 1px solid #444444;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+        }
