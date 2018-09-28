@@ -1,0 +1,163 @@
+﻿@{
+    ViewBag.Title = "Register Your Service";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/Form.css" />
+
+<div class="body-content">
+    <div class="RegisterServiceMainBanner">
+        <div class="MainBannerMessageArea">
+            Register Your Service
+            <br />
+            <svg height="10" width="400">
+                <line x1="0" y1="5" x2="400" y2="5" style="stroke:white;stroke-width:2"></line>
+            </svg>
+            <br />
+            <span style="font-size:20px">Own a service or event that you think will support the community?<br />Easily add it to our directory by filling out the form below</span>
+        </div>
+    </div>
+
+    <div class="row RegisterServiceBottomContent">
+        <form>            
+            <h1><b>Please fill in all the fields below:</b></h1>
+
+            <div class="contentform">
+                <div id="sendmessage"> Your message has been sent successfully. Thank you. </div>
+                
+                <div class="leftcontact">
+                    <div class="form-group">
+                        <p>Service Name<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-male"></i></span>
+                        <input type="text" name="ServiceName" id="ServiceName" data-rule="required" data-msg="This field is required." />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Website - If Applicable</p>
+                        <span class="icon-case"><i class="fa fa-globe"></i></span>
+                        <input type="text" name="Website" id="Website" />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Service Type<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-user"></i></span>
+                        <select name="ServiceType" id="ServiceType" />
+                        <option selected value="Permanent">Permanent</option>
+                        <option value="Event">Event</option>
+                        </select>
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group" id="dateField">
+                        <p>Date<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-calendar"></i></span>
+                        <input type="date" name="date" id="date" />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Company <span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-home"></i></span>
+                        <input type="text" name="society" id="society" data-rule="required" data-msg="This field is required." />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Service Description <span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-sticky-note"></i></span>
+                        <textarea rows="4" cols="20" name="ServiceDescription"></textarea>
+                        <div class="validation"></div>
+                    </div>
+                </div>
+
+                <div class="rightcontact">
+                    <div class="form-group">
+                        <p>Address<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-address-book"></i></span>
+                        <input type="text" name="Address" id="Address" autocomplete="on" runat="server" data-rule="required" data-msg="This field is required." />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Suburb<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
+                        <input type="text" name="Suburb" id="Suburb" data-rule="required" data-msg="This field is required." />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Post Code<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
+                        <input type="text" name="PostCode" id="PostCode" data-rule="required" data-msg="This field is required." />
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>State<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
+                        <input type="text" name="State" id="State" data-rule="required" data-msg="This field is required." />
+                        <div class="validation"></div>
+                    </div>
+
+                    <input type="hidden" id="placeLat" name="placeLat" />
+                    <input type="hidden" id="placeLng" name="placeLng" />
+
+                    <div class="form-group">
+                        <p>Contact number <span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="phone" id="phone" data-rule="maxlen:10" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Téléphone' doit être renseigné. Minimum 10 chiffres" />
+                        <div class="validation"></div>
+                    </div>
+
+                </div>
+            </div>
+            <button type="submit" class="bouton-contact">Register Service</button>
+        </form>
+    </div>
+</div>
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA2wkkFoJ8RNm10pHA8LU5e2_NAdCgJ2fY&libraries=places" type="text/javascript"></script>
+
+<!----------------------------------- Scripts and GoogleMaps ------------------------------------------>
+<script type="text/javascript">
+    function CheckService() {
+        var ServiceType = document.getElementById('ServiceType').value;
+        if (ServiceType == "Event") {
+            document.getElementById("dateField").style.display = "block";
+        }
+        else {
+            document.getElementById("dateField").style.display = "none";
+        }
+    }
+    document.getElementById("dateField").style.display = "none";
+    document.getElementById("ServiceType").onchange = CheckService;
+
+    //------------------------------- Google maps -------------------------------//
+    function initialize() {
+        var input = document.getElementById("Address");
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        // Set autocomplete restriction
+        autocomplete.setComponentRestrictions(
+            { 'country': ['au'] });
+        autocomplete.setFields(
+            ['address_components', 'geometry']);
+        
+        // Trigger autocomplete when inputting address
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            console.log(place);
+            console.log(place);
+            console.log(place.postcode);
+            document.getElementById('Suburb').value = place.address_components[2].long_name;
+            document.getElementById('PostCode').value = place.address_components[6].long_name;
+            document.getElementById('State').value = place.address_components[4].long_name;
+            document.getElementById('placeLat').value = place.geometry.location.lat();
+            document.getElementById('placeLng').value = place.geometry.location.lng();
+            console.log("Latitude: " + place.geometry.location.lat());
+            console.log("Longitude: " + place.geometry.location.lng());
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+

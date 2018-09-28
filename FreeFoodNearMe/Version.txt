@@ -5,4 +5,9 @@
 			v0.0.1						25/09/2018					- Created website framework template					Jason Chang
 																	- Created Header
 																	- Created Footer
+																	- Implemented Static Google maps into Homepage
 																	
+			v0.0.2						26/09/2018					- Created Homepage										Jason Chang
+																	- Created Register Service Page
+																	- Implemented Google places Autocomplete
+																	- Created Admin Login Page

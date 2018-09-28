@@ -17,11 +17,11 @@
                 <div class="navbar-expand navbar navbar-container">
                     <ul class="navbar-nav nav">
                         <li class="nav-item" id="headerItem">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="~/"><b>Home</b></a>
                             <div class="underline"></div>
                         </li>
                         <li class="nav-item" id="headerItem">
-                            <a class="nav-link" href="#">Request Your Service</a>       
+                            <a class="nav-link" href="~/Home/RegisterService"><b>Register Your Service</b></a>       
                             <div class="underline"></div>
                     </ul>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="navbar navbar-expand navbar-container">
                         <ul class="navbar-nav nav">
                             <li class="nav-item">
-                                <a class="nav-link" id="logIn" href="#" data-balloon="This functionality is currently only for administrators" data-balloon-pos="down">Log In</a>
+                                <a class="nav-link" id="logIn" href="~/Home/Login" data-balloon="This functionality is currently only for administrators" data-balloon-pos="down"><b>Log In</b></a>
                                 <div class="underline"></div>
                             </li>
                         </ul>
@@ -44,40 +44,39 @@
         </nav>         
     </header>
 
-    <div>
+    <div class="pageContent">
         @RenderBody()
-        <hr />
     </div>
 
 
     <footer class="footerArea">
         <div class="row footerContent">
-            <div class="col-6 footerLeft">
+            <div class="col-7 footerLeft">
                 <div class="navbar-expand navbar-container">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="~/">Home</a>
+                            <a href="~/"><b>Home</b></a>
                             <div class="underline"></div>
                         </li>
                         <li><a>|</a></li>
                         <li class="nav-item">
-                            <a href="#">Request Your Service</a>
+                            <a href="#"><b>Request Your Service</b></a>
                             <div class="underline"></div>
                         </li>
                         <li><a>|</a></li>
                         <li class="nav-item">
-                            <a href="#">Terms of Service</a>
+                            <a href="#"><b>Terms of Service</b></a>
                             <div class="underline"></div>
                         </li>
                         <li><a>|</a></li>
                         <li class="nav-item">
-                            <a href="#">Privacy Policy</a>
+                            <a href="#"><b>Privacy Policy</b></a>
                             <div class="underline"></div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-4 footerRight">
+            <div class="col-3 footerRight">
                 <div class="navbar-expand navbar-container float-right">
                     <ul class="navbar-nav">
                         <li class="nav-item">

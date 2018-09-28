@@ -1,4 +1,12 @@
-﻿/*---------------------------- Header ---------------------------*/
+﻿.pageContent{
+    background-color: #ededed;
+}
+
+.body-content{
+    margin: auto auto;
+    min-height: calc(100vh - 200px);
+}
+/*---------------------------- Header ---------------------------*/
 #navbarTop{
     height: 80px;
     padding-left: 75px;
@@ -66,9 +74,9 @@
 
 .MainBanner {
     height: 400px;
-    width: 100vw;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Images/FreshProduce.png');
-    /*background-image: url("../Images/FreshProduce.png");*/
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Images/FreshProduce.png') no-repeat center center;
+    background-size: cover;
     opacity: 0.8;
     background-repeat: no-repeat;
     display: table;
@@ -79,11 +87,52 @@
     width: 900px;
     height: 300px;
     text-align: center;
-    vertical-align: middle;
-    margin: auto auto;
+    vertical-align: middle;    
     position: relative;
     font-size: 36px;
     color: white;
+}
+
+.homepageBottomContent{
+    height:600px;
+    margin: 0;
+    padding: 0;
+}
+
+.homepageBottomContentLeft {
+    background-color: #3784cc;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.homepageBottomContentRight{
+    margin: 0;
+    padding: 0;
+}
+
+#homepageSearchBox {
+    margin-top: 50px;
+    color: black;
+    font-size: 18px;
+}
+
+/*---------------------------- Register Service ---------------------------*/
+
+.RegisterServiceMainBanner{
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Images/FoodBank.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    display: table;
+}
+
+.RegisterServiceBottomContent{
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background: none;
 }
 /*---------------------------- Custom Underline ---------------------------*/
 .navbar-container ul li a {
@@ -129,50 +178,98 @@
     color: white;
 }
 
-    .tooltip .bottom {
-        min-width: 100px;
-        top: 40px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        padding: 10px 20px;
-        color: #FFFFFF;
-        background-color: #333333;
-        font-weight: normal;
-        font-size: 13px;
-        border-radius: 8px;
-        position: absolute;
-        z-index: 99999999;
-        box-sizing: border-box;
-        border: 1px solid #444444;
-        box-shadow: 0 1px 8px rgba(0,0,0,0.5);
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.8s;
+.tooltip .bottom {
+    min-width: 100px;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 10px 20px;
+    color: #FFFFFF;
+    background-color: #333333;
+    font-weight: normal;
+    font-size: 13px;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 99999999;
+    box-sizing: border-box;
+    border: 1px solid #444444;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+.tooltip:hover .bottom {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip .bottom i {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.tooltip .bottom i::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    transform: translate(-50%,50%) rotate(45deg);
+    background-color: #333333;
+    border: 1px solid #444444;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+/*---------------------------- Search Box ---------------------------*/
+
+.search {
+    width: 300px;
+    margin: 20px auto;
+    position: relative;
+    height: 40px;
+}
+
+.searchTerm {
+    float: left;
+    height: 36px !important;
+    width: 100%;
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+    .searchTerm:focus {
+        color: #00B4CC;
     }
 
-    .tooltip:hover .bottom {
-        visibility: visible;
-        opacity: 1;
-    }
+.searchButton {
+    position: absolute;
+    right: 0px;
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
 
-    .tooltip .bottom i {
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        margin-left: -12px;
-        width: 24px;
-        height: 12px;
-        overflow: hidden;
-    }
-
-        .tooltip .bottom i::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            left: 50%;
-            transform: translate(-50%,50%) rotate(45deg);
-            background-color: #333333;
-            border: 1px solid #444444;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.5);
-        }
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

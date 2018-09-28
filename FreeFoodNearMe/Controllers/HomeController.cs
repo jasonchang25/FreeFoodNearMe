@@ -10,21 +10,19 @@ namespace FreeFoodNearMe.Controllers
     {
         public ActionResult Index()
         {
+            string[] list = { "1", "2", "3", "4", "5" };
+            ViewBag.list = list;
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult RegisterService()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Login()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
-        }
+        }        
     }
 }

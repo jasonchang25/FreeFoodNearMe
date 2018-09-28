@@ -2,12 +2,11 @@
     ViewBag.Title = "Home Page";
 }
 
-
 <div class="body-content">
     <div class="MainBanner">
         <div class="MainBannerMessageArea">
             The easiest way to find food banks near you
-            <br/>
+            <br />
             <svg height="10" width="400">
                 <line x1="0" y1="5" x2="400" y2="5" style="stroke:white;stroke-width:2"></line>
             </svg>
@@ -15,32 +14,62 @@
             <span style="font-size:20px">Our goal is to create a simplistic way for people to locate food and resources during their time of need</span>
         </div>
     </div>
+
+    <div class="row homepageBottomContent">
+        <div class="col-4 homepageBottomContentLeft">
+            <div id="homepageSearchBox">
+                <b>Find a service near you!</b>
+                <div class="search">
+                    <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-8 homepageBottomContentRight">
+            <div id="map"></div>
+        </div>
+    </div>
 </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!---------------------------------------------------- Google Maps -------------------------------------------------------->
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<script>
+    var map;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: -27.469770, lng: 153.025131 },
+            zoom: 10
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+            map.setCenter(pos);
+            }, function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2wkkFoJ8RNm10pHA8LU5e2_NAdCgJ2fY&callback=initMap"
+        async defer></script>

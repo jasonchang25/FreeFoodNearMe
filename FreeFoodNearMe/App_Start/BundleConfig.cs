@@ -26,7 +26,8 @@ namespace FreeFoodNearMe
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/CustomStyle.css",
-                      "~/Content/Balloon.css"));
+                      "~/Content/Balloon.css",
+                      "~/Content/GoogleMaps.css"));
         }
     }
 }
