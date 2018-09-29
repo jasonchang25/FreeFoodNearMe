@@ -29,9 +29,21 @@ namespace FreeFoodNearMe.Controllers
 
         public async Task<ActionResult> Index()
         {
-            string[] list = { "1", "2", "3", "4", "5" };
-            ViewBag.list = list;
-            return View();
+            var Services = await siteService.GetAllServices();
+            if (Services == null)
+            {
+                return HttpNotFound();
+            }
+
+            List<string> ServiceNamesList = new List<string>();
+            foreach (var service in Services)
+            {
+                ServiceNamesList.Add(service.ServiceName);
+            }
+            string[] ServiceNamesArray = ServiceNamesList.ToArray();
+
+            ViewBag.ServiceNames = ServiceNamesArray;
+            return View(Services);
         }
 
 

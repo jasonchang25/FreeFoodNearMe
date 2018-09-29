@@ -175,6 +175,7 @@
     <Compile Include="Services\SiteService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\autocomplete.css" />
     <Content Include="Content\Balloon.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -201,6 +202,7 @@
     <Content Include="Images\ProduceBanner.png" />
     <Content Include="Images\QUTLogo.png" />
     <Content Include="Images\QUTLogo2.png" />
+    <Content Include="Scripts\autocomplete.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
