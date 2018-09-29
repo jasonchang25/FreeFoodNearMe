@@ -11,3 +11,10 @@
 																	- Created Register Service Page
 																	- Implemented Google places Autocomplete
 																	- Created Admin Login Page
+
+			v0.0.3						29/09/2018					- Connected application to CosmosDB						Jason Chang
+																	- Created architecture and model for services
+																	- Register Service form to write to Cosmosdb
+																	- Created Pending services page, dynamic data
+																	- Created Detailed Pending service page, dynamic data
+																	- Implemented approval/reject functionality of service

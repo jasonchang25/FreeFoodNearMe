@@ -1,4 +1,15 @@
-﻿form h1 {
+﻿.TimeRange{
+    width: 30%;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.TimeRangeIndicator{
+    width: 10%;
+    text-align: center;
+}
+
+form h1 {
     font-size: 18px;
     background: #3784cc none repeat scroll 0% 0%;
     opacity: 0.8;
@@ -122,6 +133,7 @@ i {
 }
 
 .rightcontact {
+    height:100%;
     width: 49.5%;
     float: right;
     box-sizing: border-box;
@@ -161,4 +173,45 @@ input:focus, select:focus, textarea:focus {
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+.ButtonArea {
+    display: inline-block;    
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+    font-size: 18px;
+    margin-bottom: -5px;
+}
+
+.approve {
+    float: left;
+    background-color: darkslategrey;
+    color: #FFF;
+    text-align: center;
+    width: 50%;
+    border: 0;
+    padding: 17px 0 17px 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.approve:hover{
+    background-color: green;
+}
+
+.reject {
+    float: right;
+    background-color: darkred;
+    color: #FFF;
+    text-align: center;
+    width: 50%;
+    border: 0;
+    padding: 17px 0 17px 0;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.reject:hover {
+    background-color: red;
 }

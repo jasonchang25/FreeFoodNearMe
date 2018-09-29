@@ -4,9 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - FreeFoodNearMe</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>       
@@ -60,7 +64,7 @@
                         </li>
                         <li><a>|</a></li>
                         <li class="nav-item">
-                            <a href="#"><b>Request Your Service</b></a>
+                            <a href="~/Home/RegisterService"><b>Request Your Service</b></a>
                             <div class="underline"></div>
                         </li>
                         <li><a>|</a></li>
@@ -108,8 +112,7 @@
     </footer>
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    
+    
 </body>
 </html>

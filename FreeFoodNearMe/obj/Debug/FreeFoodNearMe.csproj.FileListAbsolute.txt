@@ -89,3 +89,16 @@ C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\obj\Debug\FreeFoodNear
 C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\obj\Debug\FreeFoodNearMe.csproj.CopyComplete
 C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\obj\Debug\FreeFoodNearMe.dll
 C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\obj\Debug\FreeFoodNearMe.pdb
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\DocumentDB.Spatial.Sql.dll
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\Microsoft.Azure.Documents.Client.dll
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Buffers.dll
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Memory.dll
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Net.Http.WinHttpHandler.dll
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Numerics.Vectors.dll
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\Microsoft.Azure.Documents.Client.xml
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Buffers.xml
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Memory.xml
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Numerics.Vectors.xml
+C:\Users\Jason\Source\Repos\FreeFoodNearMe\FreeFoodNearMe\bin\System.Runtime.CompilerServices.Unsafe.xml

@@ -134,6 +134,26 @@
     padding: 0;
     background: none;
 }
+
+/*---------------------------- Register Service ---------------------------*/
+
+.PendingServiceMainBanner {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Images/OfficeDesk.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    display: table;
+}
+
+.PendingServiceBottomContent {
+    height: 100%;
+    width: calc(100% - 150px);
+    margin: 0 auto;
+    padding: 0;
+    background: none;
+}
+
 /*---------------------------- Custom Underline ---------------------------*/
 .navbar-container ul li a {
     text-decoration: none;

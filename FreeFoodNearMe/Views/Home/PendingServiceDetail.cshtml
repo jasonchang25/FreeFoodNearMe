@@ -1,0 +1,261 @@
+﻿@using FreeFoodNearMe.Models
+@model FreeFoodNearMe.Models.Service
+@{    
+    ViewBag.Title = "Register Your Service";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/Form.css" />
+
+<div class="body-content">
+    <div class="PendingServiceMainBanner">
+        <div class="MainBannerMessageArea">
+            Service Review
+            <br />
+            <svg height="10" width="400">
+                <line x1="0" y1="5" x2="400" y2="5" style="stroke:white;stroke-width:2"></line>
+            </svg>
+            <br />
+            <span style="font-size:20px">Review the following service to add it to the directory</span>
+        </div>
+    </div>
+
+    <div class="RegisterServiceBottomContent">
+
+        @using (Html.BeginForm("ApproveService", "Home", FormMethod.Post))
+        {
+            <h1><b>Please review the following service:</b></h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item">@Html.ActionLink("Pending Services", "PendingServices", "Home")</li>
+                    <li class="breadcrumb-item active" aria-current="page">@Model.ServiceName</li>
+                </ol>
+            </nav>
+
+            <div class="contentform">
+                <div id="sendmessage"> Your message has been sent successfully. Thank you. </div>
+                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @type = "hidden" } })
+
+                <div class="leftcontact">
+                    <div class="form-group">
+                        <p>Service Name<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-male"></i></span>
+                        @Html.EditorFor(model => model.ServiceName, new { htmlAttributes = new { @id = "ServiceName" } })
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Website - If Applicable</p>
+                        <span class="icon-case"><i class="fa fa-globe"></i></span>
+                        @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @id = "Website" } })
+                        <div class="validation"></div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <p>Company Name<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-home"></i></span>
+                        @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @id = "CompanyName" } })
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Address<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-address-book"></i></span>
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @id = "Address" } })
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Suburb<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
+                        @Html.EditorFor(model => model.Suburb, new { htmlAttributes = new { @id = "Suburb" } })
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Post Code<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
+                        @Html.EditorFor(model => model.PostCode, new { htmlAttributes = new { @id = "PostCode" } })
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>State<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-location-arrow"></i></span>
+                        @Html.EditorFor(model => model.State, new { htmlAttributes = new { @id = "State" } })
+                        <div class="validation"></div>
+                    </div>
+
+                    @Html.EditorFor(model => model.Lat, new { htmlAttributes = new { @type = "hidden", @id = "placeLat" } })
+                    @Html.EditorFor(model => model.Lng, new { htmlAttributes = new { @type = "hidden", @id = "placeLng" } })
+
+                    <div class="form-group">
+                        <p>Contact number <span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-phone"></i></span>
+                        @Html.EditorFor(model => model.ContactNumber, new { htmlAttributes = new { @id = "phone" } })
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Service Description <span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-sticky-note"></i></span>
+                        @Html.TextAreaFor(model => model.ServiceDescription, new { htmlAttributes = new { @id = "ServiceDescription" } })
+                        <div class="validation"></div>
+                    </div>
+                </div>
+
+                <div class="rightcontact">
+
+                    <div class="form-group">
+                        <p>Service Type<span>*</span></p>
+                        <span class="icon-case"><i class="fa fa-user"></i></span>
+                        @Html.DropDownListFor(model => model.ServiceType, ViewBag.ServiceType as IEnumerable<SelectListItem>, htmlAttributes: new { @id = "ServiceType" })
+                        <div class="validation"></div>
+                    </div>
+
+                    <div class="form-group" id="dateField">
+                        <p>Date<span>*</span></p>
+                        <div class="form-inline">
+                            <span class="icon-case"><i class="fa fa-calendar"></i></span>
+                            @Html.EditorFor(model => model.DateStart, new { htmlAttributes = new { @type = "date", @class = "TimeRange" } })
+                            <span class="TimeRangeIndicator"> to </span>
+                            <span class="icon-case"><i class="fa fa-calendar"></i></span>
+                            @Html.EditorFor(model => model.DateEnd, new { htmlAttributes = new { @type = "date", @class = "TimeRange" } })
+                        </div>
+                    </div>
+
+
+                    <!----------------------------------- Opening Hours ------------------------------------------------>
+                    <div class="form-group">
+                        Operating Hours:
+                    </div>
+
+                    <div class="form-group">
+                        <p>Sunday<span>*</span></p>
+                        <div class="form-inline">
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.SundayStart, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                            <span class="TimeRangeIndicator"> to </span>
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.SundayEnd, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Monday<span>*</span></p>
+                        <div class="form-inline">
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.MondayStart, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                            <span class="TimeRangeIndicator"> to </span>
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.MondayEnd, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Tuesday<span>*</span></p>
+                        <div class="form-inline">
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.TuesdayStart, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                            <span class="TimeRangeIndicator"> to </span>
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.TuesdayEnd, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Wednesday<span>*</span></p>
+                        <div class="form-inline">
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.WednesdayStart, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                            <span class="TimeRangeIndicator"> to </span>
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.WednesdayEnd, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Thursday<span>*</span></p>
+                        <div class="form-inline">
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.ThursdayStart, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                            <span class="TimeRangeIndicator"> to </span>
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.ThursdayEnd, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Friday<span>*</span></p>
+                        <div class="form-inline">
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.FridayStart, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                            <span class="TimeRangeIndicator"> to </span>
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.FridayEnd, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Saturday<span>*</span></p>
+                        <div class="form-inline">
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.SaturdayStart, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                            <span class="TimeRangeIndicator"> to </span>
+                            <span class="icon-case"><i class="fa fa-clock-o"></i></span>
+                            @Html.EditorFor(model => model.SaturdayEnd, new { htmlAttributes = new { @type = "time", @class = "TimeRange" } })
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="ButtonArea">
+                <button type="submit" class="approve"><b>Approve Service</b></button>
+                @Html.ActionLink("Remove", "RejectService", "Home", new { id = Model.Id } , new { @class = "reject", onclick = "return confirm('Do you really want to Reject this service?')" })
+            </div>            
+        }            
+        </div>
+    </div>
+
+
+
+<!----------------------------------- Scripts and GoogleMaps ------------------------------------------>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA2wkkFoJ8RNm10pHA8LU5e2_NAdCgJ2fY&libraries=places" type="text/javascript"></script>
+
+<script type="text/javascript">
+    function CheckService() {
+        var ServiceType = document.getElementById('ServiceType').value;
+        if (ServiceType == "Event") {
+            document.getElementById("dateField").style.display = "block";
+        }
+        else {
+            document.getElementById("dateField").style.display = "none";
+        }
+    }
+    document.getElementById("dateField").style.display = "none";
+    document.getElementById("ServiceType").onchange = CheckService;
+
+    //------------------------------- Google maps -------------------------------//
+    function initialize() {
+        var input = document.getElementById("Address");
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        // Set autocomplete restriction
+        autocomplete.setComponentRestrictions(
+            { 'country': ['au'] });
+        autocomplete.setFields(
+            ['address_components', 'geometry']);
+        
+        // Trigger autocomplete when inputting address
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            document.getElementById('Suburb').value = place.address_components[2].long_name;
+            document.getElementById('PostCode').value = place.address_components[6].long_name;
+            document.getElementById('State').value = place.address_components[4].long_name;
+            document.getElementById('placeLat').value = place.geometry.location.lat();
+            document.getElementById('placeLng').value = place.geometry.location.lng();
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
