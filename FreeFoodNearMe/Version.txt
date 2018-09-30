@@ -22,3 +22,6 @@
 			v0.0.4						30/09/2018					- Added dynamic data to homepage						Jason Chang
 																	- Added autocomplete to search bar
 																	- Added google maps marker and infowindow
+																	- Added result table on homepage
+																	- Added google maps item search in realtime
+																	- Added result table search in realtime

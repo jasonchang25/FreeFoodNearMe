@@ -4,7 +4,11 @@
     ViewBag.Title = "Home Page";
 }
 <link rel="stylesheet" type="text/css" href="~/Content/autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/dataTables.bootstrap4.min.css" />
 <script src="~/Scripts/autocomplete.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="~/Scripts/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+
 
 <div class="body-content">
     <div class="MainBanner">
@@ -20,10 +24,10 @@
     </div>
 
     <div class="row homepageBottomContent">
-        <div class="col-4 homepageBottomContentLeft">
+        <div class="col-5 homepageBottomContentLeft">
             <div id="homepageSearchBox">
-                <b>Find a service near you!</b>
-                <form autocomplete="off">                   
+                <b>Find a service near you!</b>                
+                <form autocomplete="off">
                     <div class="search autocomplete" style="width:300px;">
                         <input id="myInput" class="searchTerm" type="text" placeholder="What are you looking for?">
                         <button type="submit" class="searchButton">
@@ -31,9 +35,35 @@
                         </button>
                     </div>
                 </form>
+                <table id="example" class="table ResultsTable" style="width:100%">
+                    <thead style="display:none">
+                        <tr>
+                            <th></th>
+                            <th width="20%">Marker Icon</th>
+                            <th width="80%">Service Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Service in Model)
+                        {
+                            <tr>
+                                <td style="display: none">@Service.ServiceName</td>
+                                <td width="20%"><img class="TableMarker" src="~/Images/marker.png" /></td>
+                                <td width="80%">
+                                    <p><b>@Service.ServiceName</b><br/>
+                                        <i class="fa fa-home" aria-hidden="true"></i>&ensp; @Service.CompanyName &emsp; <i class="fa fa-phone" aria-hidden="true"></i>&ensp; @Service.ContactNumber
+                                    </p>
+                                    <hr/>
+                                    <p>@Service.ServiceDescription</p>
+                                    <a href="~/Home/ServiceDetails/@Service.Id" style="color:black; float: right">Read Full Details...</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="col-8 homepageBottomContentRight">
+        <div class="col-7 homepageBottomContentRight">
             <div id="map"></div>
         </div>
     </div>
@@ -44,8 +74,48 @@
 <script>
     var map;
     var googlemarkers = [];
+    var marker;
+    var i;
     var ServiceNames = JSON.parse('@Html.Raw(Json.Encode(ViewBag.ServiceNames))');
     autocomplete(document.getElementById("myInput"), ServiceNames);
+
+    ServiceResults = $('#example').DataTable({
+        "pageLength" : 3,
+        "sDom" : 'tp',
+        "columnDefs": [
+            { "targets": [1, 2], "searchable": false }
+        ]
+    });
+
+    $('#myInput').keyup(function () {
+        ServiceResults.search($(this).val()).draw();
+        for (i = 0; i < googlemarkers.length; i++) {
+            marker = googlemarkers[i];
+
+            if (marker.title.toUpperCase().includes($(this).val().toUpperCase()) || $(this).val() == "") {
+                marker.setVisible(true);
+            }
+            else {
+                console.log(marker.title);
+                marker.setVisible(false);
+            }
+         }
+    })
+    
+    function SearchChange(value) {
+        ServiceResults.search(value).draw();
+        for (i = 0; i < googlemarkers.length; i++) {
+            marker = googlemarkers[i];
+
+            if (marker.title.toUpperCase().includes(value.toUpperCase()) || value == "") {
+                marker.setVisible(true);
+            }
+            else {
+                console.log(marker.title);
+                marker.setVisible(false);
+            }
+        }
+    }
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -103,8 +173,6 @@
             infowindow.setContent(this.info)
             infowindow.open(map, this)
         });
-
-        console.log(googlemarkers);
 
         </text>
         }

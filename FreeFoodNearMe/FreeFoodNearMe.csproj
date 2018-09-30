@@ -198,6 +198,7 @@
     <Content Include="Images\FoodBank.png" />
     <Content Include="Images\FreeFoodNearMeLogo.png" />
     <Content Include="Images\FreshProduce.png" />
+    <Content Include="Images\marker.png" />
     <Content Include="Images\OfficeDesk.png" />
     <Content Include="Images\ProduceBanner.png" />
     <Content Include="Images\QUTLogo.png" />

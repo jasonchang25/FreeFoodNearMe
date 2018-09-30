@@ -94,7 +94,7 @@
 }
 
 .homepageBottomContent{
-    height:600px;
+    min-height: 700px;
     margin: 0;
     padding: 0;
 }
@@ -111,11 +111,22 @@
 }
 
 #homepageSearchBox {
-    margin-top: 50px;
+    margin-top: 20px;
     color: black;
     font-size: 18px;
+    padding-bottom: 10px;
 }
 
+.ResultsTable{
+    font-size: 18px;
+    text-align: left;
+    background-color: none;  
+}
+
+.TableMarker {
+    width: 60px;
+    float:right;
+}
 /*---------------------------- Register Service ---------------------------*/
 
 .RegisterServiceMainBanner{
