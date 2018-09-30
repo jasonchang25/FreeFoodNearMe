@@ -18,3 +18,7 @@
 																	- Created Pending services page, dynamic data
 																	- Created Detailed Pending service page, dynamic data
 																	- Implemented approval/reject functionality of service
+
+			v0.0.4						30/09/2018					- Added dynamic data to homepage						Jason Chang
+																	- Added autocomplete to search bar
+																	- Added google maps marker and infowindow

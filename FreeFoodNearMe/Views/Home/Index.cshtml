@@ -43,8 +43,8 @@
 
 <script>
     var map;
+    var googlemarkers = [];
     var ServiceNames = JSON.parse('@Html.Raw(Json.Encode(ViewBag.ServiceNames))');
-    console.log(ServiceNames);
     autocomplete(document.getElementById("myInput"), ServiceNames);
 
     function initMap() {
@@ -68,6 +68,45 @@
         } else {
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        @foreach (var Service in Model)
+        {
+        <text>
+        var position = { lat: @Service.Lat , lng: @Service.Lng};
+        var contentString = '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h3 id="firstHeading" class="firstHeading">@Service.ServiceName</h3>' +
+            '<div id="bodyContent">' +
+            '<p>@Service.ServiceDescription</p>' +
+            '<p>For full details <a href="~/Home/ServiceDetails/@Service.Id">' +
+            'click here</a></p>' +
+            '</div>' +
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: "@Service.ServiceName",
+            info: contentString
+        });
+
+        googlemarkers.push(marker);
+
+        google.maps.event.addListener(marker,'click', function () {
+            infowindow.setContent(this.info)
+            infowindow.open(map, this)
+        });
+
+        console.log(googlemarkers);
+
+        </text>
         }
     }
 
