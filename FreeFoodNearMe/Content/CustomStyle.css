@@ -100,8 +100,7 @@
 }
 
 .homepageBottomContentLeft {
-    background-color: #3784cc;
-    opacity: 0.8;
+    background-color: rgba(55, 132, 204, 0.80);
     text-align: center;
 }
 
@@ -127,9 +126,9 @@
     width: 60px;
     float:right;
 }
-/*---------------------------- Register Service ---------------------------*/
 
-.RegisterServiceMainBanner{
+/*---------------------------- Register Service ---------------------------*/
+.RegisterServiceMainBanner {
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Images/FoodBank.png') no-repeat center center;
     background-size: cover;
@@ -146,7 +145,7 @@
     background: none;
 }
 
-/*---------------------------- Register Service ---------------------------*/
+/*---------------------------- Pending Service ---------------------------*/
 
 .PendingServiceMainBanner {
     width: 100%;
@@ -165,6 +164,125 @@
     background: none;
 }
 
+/*---------------------------- Service  Details ---------------------------*/
+.ServiceDetailsTopContent {
+    min-height: 500px;
+    margin: 0;
+    padding: 0;
+}
+
+.ServiceDetailsBottomContentLeft {
+    text-align: center;
+    padding: 0;
+}
+
+.ServiceDetailsBottomContentRight {
+    background-color: rgba(250, 250, 250, 0.80);  
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+}
+
+.ServiceDetailsContent{
+    margin: 10px 40px 0 40px;
+}
+
+.ServiceDetailsTable {
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+}
+
+.ServiceDetailsStoriesSection {
+    padding: 20px 40px;
+    margin: 0 auto;
+    width:80%;
+    max-width: 1500px;
+}
+
+#ServiceStoriesTitle {
+    width: 100%;
+    background-color: #5f9dd6;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 22px;
+    margin: auto auto;
+    padding: 20px 0;
+}
+
+#PostStorySection{
+    width:100%;
+}
+
+.StoryForm {
+    width:100%;
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 1rem;
+}
+
+#StoryTextArea {
+    resize: none;
+}
+
+#remainingC {
+    padding-left: 35px;
+}
+
+.StorySubmit {
+    float: right;
+    display: block;
+    position: relative;
+    border-radius: 25px;
+    background-color: rgb(95, 157, 214);
+    border: none;
+    color: #FFFFFF;
+    width: 150px;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-top: 80px;
+}
+
+.StorySubmit span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.StorySubmit span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.StorySubmit:hover span {
+    padding-right: 25px;
+}
+
+.StorySubmit:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#StoryPostDate{
+    width:100%;
+    font-size: 12px;
+}
+
+.StoryTable {
+    font-size: 18px;
+    text-align: left;
+    background-color: none;
+}
 /*---------------------------- Custom Underline ---------------------------*/
 .navbar-container ul li a {
     text-decoration: none;

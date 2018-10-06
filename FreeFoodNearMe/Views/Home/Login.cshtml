@@ -1,21 +1,29 @@
 ﻿@{
     ViewBag.Title = "Login";
+    string credential = Request.QueryString["credential"];
 }
 
 <link rel="stylesheet" type="text/css" href="~/Content/Login.min.css" />
 
 <div class="body-content wrapper">
-        <form class="login">
-            <p class="title">Log in</p>
-            <input type="text" placeholder="Username" autofocus />
-            <i class="fa fa-user"></i>
-            <input type="password" placeholder="Password" />
-            <i class="fa fa-key"></i>
-            <button>
-                <i class="spinner"></i>
-                <span class="state">Log in</span>
-            </button>
-        </form>
+    @using (Html.BeginForm("SignIn", "Home", FormMethod.Post, new { @class = "login" }))
+    {
+        <p class="title">Log in</p>
+        if(credential == "invalid")
+        {
+            <div style="color:red">
+                <p>The username/password provided is incorrect. Please update the details below and try again.</p>
+            </div>
+        }
+        <input type="text" name="username" placeholder="Username" autofocus />
+        <i class="fa fa-user"></i>
+        <input type="password" name="password" placeholder="Password" />
+        <i class="fa fa-key"></i>
+        <button>
+            <i class="spinner"></i>
+            <span class="state">Log in</span>
+        </button>
+    }
 </div>
 
 

@@ -1,5 +1,4 @@
-﻿@using FreeFoodNearMe.Models
-@model FreeFoodNearMe.Models.Service
+﻿@model FreeFoodNearMe.Models.Service
 @{    
     ViewBag.Title = "Register Your Service";
 }
@@ -109,7 +108,7 @@
                     <div class="form-group">
                         <p>Service Type<span>*</span></p>
                         <span class="icon-case"><i class="fa fa-user"></i></span>
-                        @Html.DropDownListFor(model => model.ServiceType, ViewBag.ServiceType as IEnumerable<SelectListItem>, htmlAttributes: new { @id = "ServiceType" })
+                        @Html.DropDownListFor(model => model.ServiceType, ViewBag.ServiceType as IEnumerable<SelectListItem>, htmlAttributes: new { @id = "ServiceType" })                        
                         <div class="validation"></div>
                     </div>
 
@@ -223,6 +222,12 @@
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA2wkkFoJ8RNm10pHA8LU5e2_NAdCgJ2fY&libraries=places" type="text/javascript"></script>
 
 <script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#ServiceType").val("@Model.ServiceType");
+        CheckService();
+    });
+
     function CheckService() {
         var ServiceType = document.getElementById('ServiceType').value;
         if (ServiceType == "Event") {

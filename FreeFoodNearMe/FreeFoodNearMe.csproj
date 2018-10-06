@@ -169,8 +169,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Stories.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\StoryRepositories.cs" />
     <Compile Include="Repositories\ServiceRepositories.cs" />
     <Compile Include="Services\SiteService.cs" />
   </ItemGroup>
@@ -198,6 +200,7 @@
     <Content Include="Images\FoodBank.png" />
     <Content Include="Images\FreeFoodNearMeLogo.png" />
     <Content Include="Images\FreshProduce.png" />
+    <Content Include="Images\genericUser.png" />
     <Content Include="Images\marker.png" />
     <Content Include="Images\OfficeDesk.png" />
     <Content Include="Images\ProduceBanner.png" />
@@ -286,6 +289,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\PendingServices.cshtml" />
     <Content Include="Views\Home\PendingServiceDetail.cshtml" />
+    <Content Include="Views\Home\ServiceDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

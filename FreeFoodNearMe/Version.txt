@@ -25,3 +25,9 @@
 																	- Added result table on homepage
 																	- Added google maps item search in realtime
 																	- Added result table search in realtime
+
+			v0.0.5						 6/10/2018					- Created Service Details Page							Jason Chang
+																	- Bug fixed registeration and approval inputs
+																	- Implemented model for stories
+																	- Implemented stories posting/reading from cosmos
+																	- Implemented Admin log in functionality

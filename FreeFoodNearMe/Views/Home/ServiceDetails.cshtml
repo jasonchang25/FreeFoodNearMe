@@ -1,0 +1,224 @@
+﻿@{
+    ViewBag.Title = ViewBag.SelectedService.ServiceName;
+}
+@model IEnumerable<FreeFoodNearMe.Models.Stories>
+
+<link rel="stylesheet" type="text/css" href="~/Content/Form.css" />
+
+<div class="body-content">
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="margin-bottom:0;background-color: #5f9dd6">
+                <li class="breadcrumb-item"><a href="/" style="color:white">Home</a></li>
+                <li class="breadcrumb-item active" style="color: #e1e1e1" aria-current="page">@ViewBag.SelectedService.ServiceName</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row ServiceDetailsTopContent">
+        <div class="col-6 ServiceDetailsBottomContentLeft">
+            <div id="map"></div>
+        </div>
+        <div class="col-6 ServiceDetailsBottomContentRight">
+            <div class="ServiceDetailsContent">
+                <h3>@ViewBag.SelectedService.ServiceName</h3>
+                <p>@ViewBag.SelectedService.ServiceDescription</p>
+                <hr />
+                <table class="ServiceDetailsTable" width="100%" cellspacing="0" cellpadding="10">
+                    <tr>
+                        <td width="30px"><i class="fa fa-home" aria-hidden="true"></i></td>
+                        <td width="40%">@ViewBag.SelectedService.CompanyName</td>
+                        <td width="30px"><i class="fa fa-phone" aria-hidden="true"></i></td>
+                        <td width="40%">@ViewBag.SelectedService.ContactNumber</td>
+                        <td width="30px"></td>
+                        <td width="20%"></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-globe"></i></td>
+                        <td colspan="5"><a href="@ViewBag.SelectedService.Website">@ViewBag.SelectedService.Website</a></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-address-book"></i></td>
+                        <td colspan="5">@ViewBag.SelectedService.Address</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-user"></i></td>
+                        <td>@ViewBag.SelectedService.ServiceType</td>
+                        @if (ViewBag.SelectedService.ServiceType == "Event")
+                        {
+                            <td><i class="fa fa-calendar" aria-hidden="true"></i></td>
+                            <td colspan="3">@DateTime.Parse(ViewBag.SelectedService.DateStart).ToShortDateString()&emsp;to&emsp;@DateTime.Parse(ViewBag.SelectedService.DateEnd).ToShortDateString()</td>
+                        }
+                    </tr>
+                </table>
+                <table class="ServiceDetailsTable" width="100%" cellspacing="0" cellpadding="5" style="margin-bottom: 30px">
+                    <thead>
+                        <tr>
+                            <th colspan="2"><b>Operating Hours:</b></th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td width="15%">Monday:</td>
+                        @if (ViewBag.SelectedService.MondayStart != null && ViewBag.SelectedService.MondayEnd != null)
+                        {
+                            <td width="85%">@DateTime.Parse(ViewBag.SelectedService.MondayStart).ToShortTimeString()&emsp;-&emsp;@DateTime.Parse(ViewBag.SelectedService.MondayEnd).ToShortTimeString()</td>
+                        }
+                        else
+                        {
+                            <td width="85%">Closed</td>
+                        }
+                    </tr>
+                    <tr>
+                        <td>Tuesday:</td>
+                        @if (ViewBag.SelectedService.TuesdayStart != null && ViewBag.SelectedService.TuesdayEnd != null)
+                        {
+                            <td>@DateTime.Parse(ViewBag.SelectedService.TuesdayStart).ToShortTimeString()&emsp;-&emsp;@DateTime.Parse(ViewBag.SelectedService.TuesdayEnd).ToShortTimeString()</td>
+                        }
+                        else
+                        {
+                            <td>Closed</td>
+                        }
+                    </tr>
+                    <tr>
+                        <td>Wednesday:</td>
+                        @if (ViewBag.SelectedService.WednesdayStart != null && ViewBag.SelectedService.WednesdayEnd != null)
+                        {
+                            <td>@DateTime.Parse(ViewBag.SelectedService.WednesdayStart).ToShortTimeString()&emsp;-&emsp;@DateTime.Parse(ViewBag.SelectedService.WednesdayEnd).ToShortTimeString()</td>
+                        }
+                        else
+                        {
+                            <td>Closed</td>
+                        }
+                    </tr>
+                    <tr>
+                        <td>Thursday:</td>
+                        @if (ViewBag.SelectedService.ThursdayStart != null && ViewBag.SelectedService.ThursdayEnd != null)
+                        {
+                            <td>@DateTime.Parse(ViewBag.SelectedService.ThursdayStart).ToShortTimeString()&emsp;-&emsp;@DateTime.Parse(ViewBag.SelectedService.ThursdayEnd).ToShortTimeString()</td>
+                        }
+                        else
+                        {
+                            <td>Closed</td>
+                        }
+                    </tr>
+                    <tr>
+                        <td>Friday:</td>
+                        @if (ViewBag.SelectedService.FridayStart != null && ViewBag.SelectedService.FridayEnd != null)
+                        {
+                            <td>@DateTime.Parse(ViewBag.SelectedService.FridayStart).ToShortTimeString()&emsp;-&emsp;@DateTime.Parse(ViewBag.SelectedService.FridayEnd).ToShortTimeString()</td>
+                        }
+                        else
+                        {
+                            <td>Closed</td>
+                        }
+                    </tr>
+                    <tr>
+                        <td>Saturday:</td>
+                        @if (ViewBag.SelectedService.SaturdayStart != null && ViewBag.SelectedService.SaturdayEnd != null)
+                        {
+                            <td>@DateTime.Parse(ViewBag.SelectedService.SaturdayStart).ToShortTimeString()&emsp;-&emsp;@DateTime.Parse(ViewBag.SelectedService.SaturdayEnd).ToShortTimeString()</td>
+                        }
+                        else
+                        {
+                            <td>Closed</td>
+                        }
+                    </tr>
+                    <tr>
+                        <td>Sunday:</td>
+                        @if (ViewBag.SelectedService.SundayStart != null && ViewBag.SelectedService.SundayEnd != null)
+                        {
+                            <td>@DateTime.Parse(ViewBag.SelectedService.SundayStart).ToShortTimeString()&emsp;-&emsp;@DateTime.Parse(ViewBag.SelectedService.SundayEnd).ToShortTimeString()</td>
+                        }
+                        else
+                        {
+                            <td>Closed</td>
+                        }
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="ServiceStoriesTitle">
+            <b>Stories about @ViewBag.SelectedService.ServiceName</b>
+        </div>
+        <div style="width:100%; background-color:rgba(250, 250, 250, 0.80);">
+            <div class="ServiceDetailsStoriesSection">
+                <b>@Model.Count() Stories</b>
+                <hr />
+                <div class="row" id="PostStorySection">
+                    <div class="col-2" style="text-align: right">
+                        <img src="~/Images/genericUser.png" width="80" />
+                    </div>
+                    <div class="col-10">
+                        @using (Html.BeginForm("ShareStory", "Home", FormMethod.Post, new { @style = "background-color: transparent" }))
+                        {
+                            <div class="StoryForm" style="margin-left: 0">
+                                <span class="icon-case"><i class="fa fa-user"></i></span>
+                                <input type="text" name="DisplayName" style="width:250px;" placeholder="Insert your display name here" />
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="StoryForm" style="margin-left: 0">
+                                <div style="width:100%;overflow: hidden;">
+                                    <span class="icon-case"><i class="fa fa-sticky-note"></i></span>
+                                    <textarea name="StoryContent" maxlength="1000" id="StoryTextArea" placeholder="Share your experience here..."></textarea>
+                                    <button type="submit" class="StorySubmit"><span>Share Story</span></button>
+                                </div>
+                                <span id='remainingC'></span>
+                                <div class="validation"></div>
+                            </div>
+                            <input type="hidden" name="Service" value="@ViewBag.SelectedService.Id" />
+                        }
+                    </div>
+                </div>
+                <table id="example" class="table StoryTable" style="width:100%">
+                    @foreach (var Story in Model)
+                    {
+                        <tr>
+                            <td width="15%"><img src="~/Images/genericUser.png" width="80" style="float:right" /></td>
+                            <td width="85%"><b>@Story.displayName</b><div id="StoryPostDate">@Story.PostDate</div><p>@Story.StoryContent</p></td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!----------------------------------- Scripts and GoogleMaps ------------------------------------------>
+<script>
+
+    $('#StoryTextArea').keypress(function () {
+
+        if (this.value.length > 1000) {
+            return false;
+        }
+        $("#remainingC").html("Remaining characters : " + (1000 - this.value.length));
+    });
+
+    var map;
+    var marker;
+
+    var position = { lat: @ViewBag.SelectedService.Lat , lng: @ViewBag.SelectedService.Lng};
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: position,
+            zoom: 10
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: "@ViewBag.SelectedService.ServiceName"
+        });
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2wkkFoJ8RNm10pHA8LU5e2_NAdCgJ2fY&callback=initMap"
+        async defer></script>

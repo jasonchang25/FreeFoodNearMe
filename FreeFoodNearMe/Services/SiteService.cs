@@ -12,10 +12,12 @@ namespace FreeFoodNearMe.Services
     public class SiteService
     {
         private readonly ServiceRepositories serviceRepositories;
+        private readonly StoryRepositories storyRepositories;
 
         public SiteService()
         {
-            this.serviceRepositories = new ServiceRepositories(); 
+            this.serviceRepositories = new ServiceRepositories();
+            this.storyRepositories = new StoryRepositories();
         }
 
         /************ Food Services functions ***************/
@@ -47,6 +49,36 @@ namespace FreeFoodNearMe.Services
         public async Task ServicesAddService(Service ThisService)
         {
             await serviceRepositories.AddService(ThisService);
+        }
+
+        /************ Story functions ***************/
+        public async Task<IEnumerable<Stories>> GetAllStories()
+        {
+            return await storyRepositories.GetAllStories();
+        }
+        public async Task<IEnumerable<Stories>> GetAllStoriesForService(string Service)
+        {
+            return await storyRepositories.GetAllStoriesForService(Service);
+        }
+
+        public async Task<Stories> StoryGetByID(string id)
+        {
+            return await storyRepositories.GetStoryByID(id);
+        }
+
+        public async Task DeleteStory(Stories ThisStory)
+        {
+            await storyRepositories.Delete(ThisStory);
+        }
+
+        public async Task EditStory(Stories ThisStory)
+        {
+            await storyRepositories.Edit(ThisStory);
+        }
+
+        public async Task StoriesAddStory(Stories ThisStory)
+        {
+            await storyRepositories.AddStory(ThisStory);
         }
     }
 }

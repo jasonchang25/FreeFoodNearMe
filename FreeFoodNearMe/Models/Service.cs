@@ -25,20 +25,20 @@ namespace FreeFoodNearMe.Models
             ServiceType = "";
             DateStart = "";
             DateEnd = "";
-            SundayStart = "";
-            SundayEnd = "";
-            MondayStart = "";
-            MondayEnd = "";
-            TuesdayStart = "";
-            TuesdayEnd = "";
-            WednesdayStart = "";
-            WednesdayEnd = "";
-            ThursdayStart = "";
-            ThursdayEnd = "";
-            FridayStart = "";
-            FridayEnd = "";
-            SaturdayStart = "";
-            SaturdayEnd = "";
+            SundayStart = "Closed";
+            SundayEnd = "Closed";
+            MondayStart = "Closed";
+            MondayEnd = "Closed";
+            TuesdayStart = "Closed";
+            TuesdayEnd = "Closed";
+            WednesdayStart = "Closed";
+            WednesdayEnd = "Closed";
+            ThursdayStart = "Closed";
+            ThursdayEnd = "Closed";
+            FridayStart = "Closed";
+            FridayEnd = "Closed";
+            SaturdayStart = "Closed";
+            SaturdayEnd = "Closed";
         }
 
 

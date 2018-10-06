@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\FreeFoodNearMe"
+    "\\FreeFoodNearMe",
+    "\\FreeFoodNearMe\\Views",
+    "\\FreeFoodNearMe\\Views\\Home"
   ],
   "SelectedNode": "\\FreeFoodNearMe.sln",
   "PreviewInSolutionExplorer": false
