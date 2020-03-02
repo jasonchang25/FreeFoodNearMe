@@ -7,6 +7,8 @@ Built With
     ASP.Net MVC - The web framework used
     CosmosDB - Database used
     bootstrap - styling library used
+    
+    Hosted on Microsoft Azure (has been removed)
 
 Authors
     Jason Chang 
