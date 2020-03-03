@@ -4,7 +4,7 @@
 
 A project website created to help locate food services for low SES community. 
 This website allows users to easily search, locate and contact food services across Brisbane all graphically displayed using Google Maps API. 
-Food services are also able to post their services on the website which undergoes a reveiw process before being officially listed.
+Food services are also able to post their services on the website which undergoes a review process before being officially listed.
 
 <strong>Specifications:</strong>
     
